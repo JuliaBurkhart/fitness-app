@@ -1,9 +1,10 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from "styled-components";
 
- 
 const GlobalStyle = createGlobalStyle`
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -11,9 +12,33 @@ const GlobalStyle = createGlobalStyle`
 
 html {
     box-sizing: border-box;
-    --color-white: #fff;
-    --color-blue-dark: #1D2A73;
-    --color-blue-one: #4856DF;
+
+// COLOR VARIABLES 
+    --color-white: rgba(255,255,255);
+    --color-blue-dark: rgb(29, 42, 115);
+    --color-blue-medium: rgb(72, 86, 223);
+    --color-blue-cyan: rgb(62, 193, 243);
+    --color-cotton-candy: rgb(255, 183, 213);
+    --color-red-orange: rgb(202, 115, 88);
+    --color-yellow-warm: rgb(255, 190, 33);
+    --color-beige: rgb(245, 235, 221);
+    --color-brown-light:rgb(237, 212, 208);
+    --color-brown-med:rgb(219, 175, 168);
+    --color-brown-med2:rgb(149, 100, 93);
+    --color-brown-dark:rgb(82, 47, 41);
+    --color-green-mint:rgb(210, 221, 208);
+    --color-grey-light:#rgb(243, 243, 243);
+    --color-turquoise:rgb(62, 243, 232);
+    --color-pink:rgb(235, 66, 198);
+    --color-salmon:rgb(255, 177, 160);
+    --color-yellow-light:rgb(245, 255, 160);
+
+// GRADIENT VARIABLES
+    --gradient-blue:linear-gradient(261.83deg, #3EF3E8 6.65%, rgba(255, 255, 255, 0) 89.06%),linear-gradient(0deg, #1D2A73, #1D2A73);
+    --gradient-yellow-turq:linear-gradient(261.83deg, #3EF3E8 3.86%, rgba(255, 255, 255, 0) 89.06%),linear-gradient(0deg, #F5FFA0, #F5FFA0);      --gradient-pink:linear-gradient(261.83deg, #EB42C6 7.62%, rgba(255, 255, 255, 0) 89.06%),linear-gradient(0deg, #FFB1A0, #FFB1A0);
+    --gradient-yellow-pink:linear-gradient(261.83deg, #EB42C6 7.62%, rgba(255, 255, 255, 0) 89.06%),linear-gradient(0deg, #FFBE21, #FFBE21);
+    --gradient-purple-rose:linear-gradient(261.83deg, #FFB7D5 6.65%, rgba(255, 255, 255, 0) 89.06%),linear-gradient(0deg, #1D2A73, #1D2A73);
+    --gradient-yellow-rose:linear-gradient(261.83deg, #FFB7D5 22.27%, rgba(255, 255, 255, 0) 89.6%),linear-gradient(0deg, #FFBE21, #FFBE21);
   }
   
 body {
@@ -52,5 +77,5 @@ p {
 }
 
 `;
- 
+
 export default GlobalStyle;

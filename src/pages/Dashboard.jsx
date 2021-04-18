@@ -1,8 +1,7 @@
 import React from "react";
 
-import Navbar from "../components/Navbar"
-import Greeting from "../components/Greeting"
-import TodaysWorkout from "../components/TodaysWorkout"
+import Greeting from "../components/Greeting";
+import TodaysWorkout from "../components/TodaysWorkout";
 
 
 function Dashboard () {
@@ -10,7 +9,6 @@ function Dashboard () {
         <>
         <Greeting />
         <TodaysWorkout />
-        <Navbar />
         </ >
     )
 }

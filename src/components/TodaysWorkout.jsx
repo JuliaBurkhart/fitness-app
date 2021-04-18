@@ -6,7 +6,7 @@ margin-top: 53px;
 
 
 & span {
-    font-style: normal;
+font-style: normal;
 font-weight: 400;
 font-size: 12px;
 line-height: 15px;
@@ -20,13 +20,13 @@ justify-content: space-between;
 align-items: center;
 
 & h2 {
-    display: inline-block;
+display: inline-block;
 }
 `
 
 const StyledImgBox = styled.div`
 margin-top: 10px;
-background-color: #F5EBDD;
+background-color: var(--color-beige);
 border-radius: 5px;
 width: 375px;
 height: 214px;
@@ -35,7 +35,7 @@ margin: 0 auto;
 overflow: hidden;
 
 & img {
-    position: absolute;
+position: absolute;
 left: 50px;
 bottom: 12px;
 width: 297px;
