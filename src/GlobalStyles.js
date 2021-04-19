@@ -76,6 +76,10 @@ p {
     line-height: 21px;
 }
 
+a {
+    text-decoration: none;
+}
+
 `;
 
 export default GlobalStyle;

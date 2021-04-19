@@ -1,5 +1,7 @@
 import React from "react";
- import styled from 'styled-components';
+import styled from 'styled-components';
+import { Link } from "react-router-dom";
+
 
 const StyledDiv = styled.div`
 background: var(--color-beige);
@@ -13,15 +15,14 @@ display: flex;
 flex-direction: row;
 justify-content: space-around;
 
+
 & div {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     margin-top: 9px;
-}
-
-& img {
-  
+    margin-bottom: 1px;
+    height: 40px;
 }
 
 & p {
@@ -40,18 +41,27 @@ justify-content: space-around;
 function Navbar () {
     return (
         <StyledDiv>
+            <Link to="/">
             <div>
                 <img src="images/home.svg" alt=""/>
                 <p>Home</p>
             </div>
+            </Link>
+            
+            <Link to="/browse">
             <div>
                 <img src="images/browse.svg" alt=""/>
                 <p>Browse</p>
             </div>
-            <div>
+            </Link>
+           
+           <Link to="/profil">
+           <div>
                 <img src="images/profil.svg" alt=""/>
                 <p>Profil</p>
             </div>
+           </Link>
+            
         </StyledDiv>
             )
 }

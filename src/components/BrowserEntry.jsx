@@ -10,6 +10,7 @@ display: flex;
 justify-content: center;
 align-items: center;
 position: relative;
+margin: 20px 0;
 
 & img {
     position: absolute;

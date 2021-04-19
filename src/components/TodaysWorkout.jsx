@@ -2,7 +2,7 @@ import React from "react";
 import styled from 'styled-components';
 
 const StyledDiv = styled.div`
-margin-top: 53px;
+padding-top: 53px;
 
 
 & span {
@@ -31,7 +31,6 @@ border-radius: 5px;
 width: 375px;
 height: 214px;
 position: relative;
-margin: 0 auto;
 overflow: hidden;
 
 & img {
@@ -43,7 +42,7 @@ width: 297px;
 `
 
 const StyledDescription = styled.div`
-margin-top: 10px;
+padding-top: 10px;
 `
 
 function TodaysWorkout () {
