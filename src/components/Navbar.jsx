@@ -26,7 +26,6 @@ justify-content: space-around;
 }
 
 & p {
-    font-family: 'Roboto', sans-serif;
     font-weight: 400;
     font-size: 10px;
     font-style: normal;

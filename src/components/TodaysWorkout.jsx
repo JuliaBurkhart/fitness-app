@@ -1,17 +1,9 @@
 import React from "react";
 import styled from 'styled-components';
+import SmallText from "../components/SmallText";
 
 const StyledDiv = styled.div`
 padding: 53px 20px 0 20px;
-
-
-& span {
-font-style: normal;
-font-weight: 400;
-font-size: 12px;
-line-height: 15px;
-display: inline-block;
-}
 `
 
 const StyledFlexWrapper = styled.div`
@@ -50,7 +42,7 @@ function TodaysWorkout () {
         <StyledDiv>
             <StyledFlexWrapper>
                 <h2>Dein Workout heute</h2>
-                <span>Trainingsplan</span>
+                <SmallText>Trainingsplan</SmallText>
             </StyledFlexWrapper>
           
            <StyledImgBox>

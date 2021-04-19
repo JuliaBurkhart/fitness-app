@@ -3,6 +3,7 @@ import React from "react";
 import styled from 'styled-components';
 
 import XClose from "../components/XClose";
+import Button from "../components/Button";
 import ProgramProperties from "../components/ProgramProperties";
 import ProgramPieChart from "../components/ProgramPieChart";
 
@@ -20,6 +21,7 @@ height: 540px;
 }
 `
 
+
 const StyledFlexWrapper = styled.div`
 
     position: absolute;
@@ -35,8 +37,13 @@ const StyledFlexWrapper = styled.div`
 const StyledTextDiv = styled.div`
 background: var(--color-beige);
 padding: 20px 24px 17px 24px;
+position: relative;
 `
-
+const StyledButton = styled(Button)`
+position: absolute;
+top: 119px;
+left: 139px;
+`
 
 const programDescription = "Weit hinten, hinter den Wortbergen, fern der Länder Vokalien und Konsonantien leben die Blindtexte. Abgeschieden wohnen sie in Buchstabhausen an der Küste des Semantik, eines großen Sprachozeans. Ein kleines Bächlein namens Duden fließt durch ihren Ort und versorgt sie mit den nötigen Regelialien. Es ist ein paradiesmatisches Land, in dem einem gebratene Satzteile in den Mund fliegen.";
 
@@ -60,6 +67,7 @@ function Program () {
 
         <StyledTextDiv>
             <p>{programDescription}</p>
+            <StyledButton>jetzt starten</StyledButton>
         </StyledTextDiv>
         
         <ProgramPieChart />

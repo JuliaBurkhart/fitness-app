@@ -1,5 +1,6 @@
 import React from "react";
 import styled from 'styled-components';
+import SmallText from "../components/SmallText";
 
 const StyledDiv = styled.div`
 background: var(--color-beige);
@@ -22,10 +23,6 @@ margin: 20px 0;
     position: absolute;
     top: 12px;
     right: 18px;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 15px;
 }
 `
 
@@ -35,7 +32,7 @@ function BrowserEntry () {
     return (
     <StyledDiv>
         <img src="images/heart.svg" alt=""/>
-        <span>Neu</span>
+        <SmallText>Neu</SmallText>
         <h2>Titel des Programms</h2>
     </StyledDiv>
     )

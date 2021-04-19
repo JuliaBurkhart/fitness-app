@@ -17,12 +17,10 @@ function App() {
       <GlobalStyle />
       <Route path="/" exact component={Dashboard} />
       <Route path="/browse" component={Browse} />
-      <Route path="/" component={Navbar} />
       <Route path="/program" component={Program} />
-    
-    </div>
 
-  
+      <Route path="/" component={Navbar} />
+      </div>
   );
 }
 

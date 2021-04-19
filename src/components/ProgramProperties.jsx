@@ -7,7 +7,6 @@ height: 40px;
 text-align: center;
 
 & span {
-font-family: Roboto;
 font-style: normal;
 font-weight: normal;
 font-size: 10px;
@@ -21,7 +20,6 @@ const Ellipse = styled.span`
 display: block;
 height: 25px;
 width: 25px;
-z-index: 1;
 border-radius: 50px;
 background-color: var(--color-beige);
 margin: 0 auto;
