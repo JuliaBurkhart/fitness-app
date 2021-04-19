@@ -2,7 +2,7 @@ import React from "react";
 import styled from 'styled-components';
 
 const StyledDiv = styled.div`
-padding-top: 71px;
+padding: 71px 20px 0 20px;
 `
 
 function Greeting () {

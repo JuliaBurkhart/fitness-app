@@ -2,7 +2,7 @@ import React from "react";
 import styled from 'styled-components';
 
 const StyledDiv = styled.div`
-padding-top: 53px;
+padding: 53px 20px 0 20px;
 
 
 & span {

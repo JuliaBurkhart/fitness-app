@@ -45,7 +45,6 @@ body {
     background: var(--color-white); 
     color: var(--color-blue-dark);
     font-family: 'Montserrat', sans-serif;
-    padding: 0 20px;
   }
 
 h1 {
@@ -76,8 +75,9 @@ p {
     line-height: 21px;
 }
 
-a {
-    text-decoration: none;
+a, a:hover, a:focus, a:active {
+      text-decoration: none;
+      color: inherit;
 }
 
 `;
