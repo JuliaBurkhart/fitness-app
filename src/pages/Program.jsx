@@ -6,6 +6,8 @@ import XClose from "../components/XClose";
 import Button from "../components/Button";
 import ProgramProperties from "../components/ProgramProperties";
 import ProgramPieChart from "../components/ProgramPieChart";
+import ScheduleOverview from "../components/ScheduleOverview";
+
 
 const StyledTitleDiv = styled.div`
 background: var(--gradient-yellow-rose);
@@ -71,6 +73,8 @@ function Program () {
         </StyledTextDiv>
         
         <ProgramPieChart />
+
+        <ScheduleOverview />
 
         </>
     )
