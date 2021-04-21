@@ -2,7 +2,7 @@
 import React from "react";
 import styled from 'styled-components';
 
-const StyledCircle = styled.span`
+const Circle = styled.span`
 position: relative;
 height: 30px;
 width: 30px;
@@ -12,7 +12,7 @@ background-color: var(--color-white);
 margin: 0 auto;
 `
 
-const StyledPlay = styled.span`
+const Play = styled.span`
 position: absolute;
 top: 6.75px;
 left: 8.75px;
@@ -27,9 +27,9 @@ border-bottom: 8px solid transparent;
 
 function PlayButton() {
     return (
-<StyledCircle>
-<StyledPlay />
-</StyledCircle>
+<Circle>
+<Play />
+</Circle>
     )
 }
 

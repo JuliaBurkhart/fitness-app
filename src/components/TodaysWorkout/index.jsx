@@ -1,22 +1,17 @@
 import React from "react";
 import styled from 'styled-components';
-import SmallText from "../elements/SmallText";
+import titlepic from "./images/titlepic.png";
+import SmallText from "../../elements/SmallText";
+import FlexWrapper from "../../elements/FlexWrapper";
 
-const StyledDiv = styled.div`
+const SectionDiv = styled.div`
 padding: 53px 20px 0 20px;
-`
-
-const StyledFlexWrapper = styled.div`
-display: flex;
-justify-content: space-between;
-align-items: center;
-
 & h2 {
 display: inline-block;
 }
 `
 
-const StyledImgBox = styled.div`
+const ImgBox = styled.div`
 margin-top: 10px;
 background-color: var(--color-beige);
 border-radius: 5px;
@@ -33,28 +28,28 @@ width: 297px;
 }
 `
 
-const StyledDescription = styled.div`
+const DescriptionBox = styled.div`
 padding-top: 10px;
 `
 
 function TodaysWorkout () {
     return (
-        <StyledDiv>
-            <StyledFlexWrapper>
+        <SectionDiv>
+            <FlexWrapper justify="space-between" align="center">
                 <h2>Dein Workout heute</h2>
                 <SmallText>Trainingsplan</SmallText>
-            </StyledFlexWrapper>
+            </FlexWrapper>
           
-           <StyledImgBox>
-               <img src="images/titlepic.png" alt=""/>
-            </StyledImgBox>
+           <ImgBox>
+               <img src={titlepic} alt=""/>
+            </ImgBox>
            
-           <StyledDescription>
+           <DescriptionBox>
                 <p>Titel des Workouts</p>
                 <p>Titel des Programms</p>
                 <span>XXX kcal · 26 Min. · Beweglichkeit</span>
-            </StyledDescription>
-        </StyledDiv>
+            </DescriptionBox>
+        </SectionDiv>
     )
 }
 

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Link } from "react-router-dom";
 
 
-const StyledDiv = styled.div`
+const SectionDiv = styled.div`
 background: var(--color-beige);
 height: 50px;
 width: 100vw;
@@ -39,7 +39,7 @@ justify-content: space-around;
 
 function Navbar () {
     return (
-        <StyledDiv>
+        <SectionDiv>
             <Link to="/">
             <div>
                 <img src="images/home.svg" alt=""/>
@@ -61,7 +61,7 @@ function Navbar () {
             </div>
            </Link>
             
-        </StyledDiv>
+        </SectionDiv>
             )
 }
 

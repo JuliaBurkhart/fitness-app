@@ -1,7 +1,7 @@
 import React from "react";
 import styled from 'styled-components';
 
-const StyledDiv = styled.div`
+const Div = styled.div`
 display: inline-block;
 position: relative;
 background: transparent;
@@ -9,7 +9,7 @@ width: 17px;
 height: 17px;
 `
 
-const StyledUp= styled.span`
+const Up= styled.span`
 position: absolute;
 top: 4px;
 left: -1px;
@@ -18,7 +18,7 @@ border-bottom: 3px solid var(--color-blue-dark);
 transform: rotate(-45deg);
 `
 
-const StyledDown = styled.span`
+const Down = styled.span`
 position: absolute;
 top: 10px;
 left: -1px;
@@ -27,7 +27,7 @@ border-bottom: 3px solid var(--color-blue-dark);
 transform: rotate(45deg);
 `
 
-const StyledHorizontal = styled.span`
+const Horizontal = styled.span`
 position: absolute;
 top: 7px;
 left: 2px;
@@ -37,11 +37,11 @@ border-bottom: 3px solid var(--color-blue-dark);
 
 function ArrowBack() {
     return (
-        <StyledDiv>
-        <StyledUp />
-        <StyledHorizontal />
-        <StyledDown />
-        </StyledDiv>
+        <Div>
+        <Up />
+        <Horizontal />
+        <Down />
+        </Div>
     )
 }
 

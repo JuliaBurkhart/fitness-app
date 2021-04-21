@@ -1,17 +1,15 @@
 import React from "react";
 import styled from 'styled-components';
 import SmallText from "../elements/SmallText";
+import FlexWrapper from "../elements/FlexWrapper";
 import DayOverview from "./DayOverview"
 
-const StyledDiv = styled.div`
+const SectionDiv = styled.div`
 background: var(--color-beige);
 padding: 35px 20px 112px 20px;
 `
 
-const StyledFlexWrapper = styled.div`
-display: flex;
-justify-content: space-between;
-align-items: center;
+const StyledFlexWrapper = styled(FlexWrapper)`
 margin-bottom: 18px;
 
 & h3 {
@@ -21,15 +19,12 @@ margin-bottom: 18px;
 
 function ScheduleOverview () {
     return (
-        <StyledDiv>
+        <SectionDiv>
 
-            <StyledFlexWrapper>
+            <StyledFlexWrapper justify="space-between" align="center">
                 <h3>21 Tage</h3>
                 <SmallText>Alle anzeigen</SmallText>
-            </StyledFlexWrapper>
-
-          
-        
+            </StyledFlexWrapper>  
 
            <DayOverview />
            <DayOverview />
@@ -37,7 +32,7 @@ function ScheduleOverview () {
            <DayOverview />
            <DayOverview />
 
-        </StyledDiv>
+        </SectionDiv>
     )
 }
 

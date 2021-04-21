@@ -4,12 +4,13 @@ import styled from 'styled-components';
 
 import XClose from "../elements/XClose";
 import Button from "../elements/Button";
+import FlexWrapper from "../elements/FlexWrapper";
 import ProgramProperties from "../components/ProgramProperties";
 import ProgramPieChart from "../components/ProgramPieChart";
 import ScheduleOverview from "../components/ScheduleOverview";
 
 
-const StyledTitleDiv = styled.div`
+const TitleDiv = styled.div`
 background: var(--gradient-yellow-rose);
 position: relative;
 height: 540px;
@@ -24,19 +25,15 @@ height: 540px;
 `
 
 
-const StyledFlexWrapper = styled.div`
+const StyledFlexWrapper = styled(FlexWrapper)`
 
     position: absolute;
     bottom: 21px;
     left: 0;
     width: 100vw;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-around;
 `
 
-const StyledTextDiv = styled.div`
+const TextDiv = styled.div`
 background: var(--color-beige);
 padding: 20px 24px 17px 24px;
 position: relative;
@@ -56,23 +53,23 @@ const programDescription = "Weit hinten, hinter den Wortbergen, fern der Länder
 function Program () {
     return(
         < >
-        <StyledTitleDiv>
+        <TitleDiv>
 
             <XClose />
             <h1>Titel des Programms</h1>
 
-            <StyledFlexWrapper>
+            <StyledFlexWrapper justify="space-around">
                 <ProgramProperties text="abnehmen" />
                 <ProgramProperties text="leicht" />
                 <ProgramProperties text="6 Wochen" />
             </StyledFlexWrapper>
       
-        </StyledTitleDiv>
+        </TitleDiv>
 
-        <StyledTextDiv>
+        <TextDiv>
             <p>{programDescription}</p>
             <StyledButton>jetzt starten</StyledButton>
-        </StyledTextDiv>
+        </TextDiv>
         
         <ProgramPieChart />
 

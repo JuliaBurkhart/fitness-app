@@ -1,5 +1,6 @@
 import React from "react";
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 
 const StyledDiv = styled.div`
@@ -24,7 +25,6 @@ border-radius: 50px;
 background-color: var(--color-beige);
 margin: 0 auto;
 `
-/* eslint-disable react/prop-types */
 
 function ProgramProperties (props) {    
     return(
@@ -34,5 +34,10 @@ function ProgramProperties (props) {
 </StyledDiv>
     )
 }
+
+
+ProgramProperties.propTypes = {
+    text: PropTypes.string
+  }
 
 export default ProgramProperties;

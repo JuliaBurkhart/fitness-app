@@ -4,28 +4,28 @@ import styled from 'styled-components';
 import { Link } from "react-router-dom";
 import SmallText from "../elements/SmallText";
 
-const StyledDiv = styled.div`
+const PageDiv = styled.div`
 margin-top: 75px;
 padding: 0 20px;
 `
 
-const StyledSpan = styled.span`
+const Span = styled.span`
     margin-top: 25px;
     margin-bottom: 17px;
 `
 
 function Browse () {
   return (
-    <StyledDiv>
+    <PageDiv>
       <h2>Browse</h2>
-      <StyledSpan><SmallText>Filter</SmallText></StyledSpan>
+      <Span><SmallText>Filter</SmallText></Span>
       <Link to="/program">
       <BrowserEntry />
       </Link>
      
       <BrowserEntry />
       <BrowserEntry />
-    </StyledDiv>
+    </PageDiv>
       
   
   )

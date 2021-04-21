@@ -2,6 +2,7 @@ import React from "react";
 import styled from 'styled-components';
 
 import SmallText from "../elements/SmallText";
+import FlexWrapper from "../elements/FlexWrapper";
 import ArrowBack from "../elements/ArrowBack";
 import Button from "../elements/Button";
 
@@ -11,13 +12,9 @@ position: relative;
 background: var(--gradient-yellow-rose);
 width: 100vw;
 `
-const StyledFlexWrapper = styled.div`
+const StyledFlexWrapper = styled(FlexWrapper)`
 height: 100vh;
 width: 100vw;
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
 
 & h1 {
     margin-bottom: 40px;
@@ -38,7 +35,7 @@ function Workout () {
             <SmallText>Titel des Programms</SmallText>
             <ArrowBack />
 
-            <StyledFlexWrapper>
+            <StyledFlexWrapper column justify="center" align="center">
                 <h1>Tag 1</h1>
                 <SmallText>XXX kcal · 26 Min. · Beweglichkeit</SmallText>
             </StyledFlexWrapper>
