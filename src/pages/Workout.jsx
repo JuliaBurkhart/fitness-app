@@ -5,12 +5,15 @@ import SmallText from "../elements/SmallText";
 import FlexWrapper from "../elements/FlexWrapper";
 import ArrowBack from "../elements/ArrowBack";
 import Button from "../elements/Button";
+import Chain from "../icons/Chain";
 
 
 const StyledDiv = styled.div`
 position: relative;
 background: var(--gradient-yellow-rose);
 width: 100vw;
+padding-top: 25px; 
+padding-left: 17px;
 `
 const StyledFlexWrapper = styled(FlexWrapper)`
 height: 100vh;
@@ -28,12 +31,27 @@ left: 168px;
 width: 77px;
 height: 45px;
 `
+const Wrapper = styled.div`
+position: absolute;
+top: 23px;
+right: 18px;
+`
+const StyledChain = styled(Chain)`
+margin-top: 35px;
+`
 
 function Workout () {
     return (
         <StyledDiv>
-            <SmallText>Titel des Programms</SmallText>
-            <ArrowBack />
+            <FlexWrapper justify="center">
+                <SmallText>Titel des Programms</SmallText>
+            </FlexWrapper>
+
+            <Wrapper>
+                <ArrowBack />
+            </Wrapper>
+          
+            <StyledChain />
 
             <StyledFlexWrapper column justify="center" align="center">
                 <h1>Tag 1</h1>

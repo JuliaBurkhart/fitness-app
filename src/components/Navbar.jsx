@@ -2,6 +2,9 @@ import React from "react";
 import styled from 'styled-components';
 import { Link } from "react-router-dom";
 
+import SvgHome from "../icons/Home";
+import SvgBrowse from "../icons/Browse";
+import SvgProfile from "../icons/Profile"
 
 const SectionDiv = styled.div`
 background: var(--color-beige);
@@ -20,9 +23,10 @@ justify-content: space-around;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+    align-items: center;
     margin-top: 9px;
     margin-bottom: 1px;
-    height: 40px;
+    height: 42px;
 }
 
 & p {
@@ -42,21 +46,21 @@ function Navbar () {
         <SectionDiv>
             <Link to="/">
             <div>
-                <img src="images/home.svg" alt=""/>
+                <SvgHome />
                 <p>Home</p>
             </div>
             </Link>
             
             <Link to="/browse">
             <div>
-                <img src="images/browse.svg" alt=""/>
+                <SvgBrowse/>
                 <p>Browse</p>
             </div>
             </Link>
            
            <Link to="/profil">
            <div>
-                <img src="images/profil.svg" alt=""/>
+                <SvgProfile />
                 <p>Profil</p>
             </div>
            </Link>

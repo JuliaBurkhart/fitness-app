@@ -37,11 +37,13 @@ border-bottom: 3px solid var(--color-blue-dark);
 
 function ArrowBack() {
     return (
-        <Div>
-        <Up />
-        <Horizontal />
-        <Down />
-        </Div>
+        // <div>
+            <Div>
+                <Up />
+                <Horizontal />
+                <Down />
+            </Div>
+        // </div>
     )
 }
 
