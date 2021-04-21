@@ -1,8 +1,8 @@
 import React from "react";
 import styled from 'styled-components';
 // import SmallText from "./SmallText";
-import PlayButton from "./PlayButton";
-import SmallText from "./SmallText";
+import PlayButton from "../elements/PlayButton";
+import SmallText from "../elements/SmallText";
 
 const StyledFlexWrapper = styled.div`
 background: var(--color-beige);

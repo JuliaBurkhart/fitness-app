@@ -2,7 +2,7 @@ import React from "react";
 import BrowserEntry from "../components/BrowserEntry";
 import styled from 'styled-components';
 import { Link } from "react-router-dom";
-import SmallText from "../components/SmallText";
+import SmallText from "../elements/SmallText";
 
 const StyledDiv = styled.div`
 margin-top: 75px;

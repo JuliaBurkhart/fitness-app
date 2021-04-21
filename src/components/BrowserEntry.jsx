@@ -1,6 +1,6 @@
 import React from "react";
 import styled from 'styled-components';
-import SmallText from "../components/SmallText";
+import SmallText from "../elements/SmallText";
 
 const StyledDiv = styled.div`
 background: var(--color-beige);

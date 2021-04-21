@@ -2,8 +2,8 @@ import React from "react";
 
 import styled from 'styled-components';
 
-import XClose from "../components/XClose";
-import Button from "../components/Button";
+import XClose from "../elements/XClose";
+import Button from "../elements/Button";
 import ProgramProperties from "../components/ProgramProperties";
 import ProgramPieChart from "../components/ProgramPieChart";
 import ScheduleOverview from "../components/ScheduleOverview";
@@ -42,6 +42,8 @@ padding: 20px 24px 17px 24px;
 position: relative;
 `
 const StyledButton = styled(Button)`
+width: 147px;
+height: 45px;
 position: absolute;
 top: 119px;
 left: 139px;

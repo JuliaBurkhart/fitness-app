@@ -1,6 +1,6 @@
 import React from "react";
 import styled from 'styled-components';
-import SmallText from "./SmallText";
+import SmallText from "../elements/SmallText";
 import DayOverview from "./DayOverview"
 
 const StyledDiv = styled.div`
