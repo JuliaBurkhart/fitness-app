@@ -8,6 +8,7 @@ import Dashboard from "./pages/Dashboard";
 import Browse from "./pages/Browse";
 import Program from "./pages/Program";
 import Workout from "./pages/Workout";
+import Exercise from "./pages/Exercise";
 
 
 function App() {
@@ -21,11 +22,11 @@ function App() {
       <Route path="/browse" component={Browse} />
       <Route path="/browse" component={Navbar} />
 
-
       <Route path="/program" component={Program} />
       <Route path="/program" component={Navbar} />
 
       <Route path="/workout" component={Workout} />
+      <Route path="/exercise" component={Exercise} />
 
       
       </div>
@@ -49,5 +50,4 @@ export default App;
 
 // Ordnerstruktur
 
-// styled weg bei den const, große Sachen in eigene ordner mit eigenem inage ordner, library gibts einen link in notion, prop types definieren wäre schön.
 

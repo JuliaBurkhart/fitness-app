@@ -1,5 +1,6 @@
 import React from "react";
 import styled from 'styled-components';
+import { Link } from "react-router-dom";
 
 import SmallText from "../elements/SmallText";
 import FlexWrapper from "../elements/FlexWrapper";
@@ -57,9 +58,11 @@ function Workout () {
                 <h1>Tag 1</h1>
                 <SmallText>XXX kcal · 26 Min. · Beweglichkeit</SmallText>
             </StyledFlexWrapper>
-    
-            <StyledButton>los!</StyledButton>
 
+            <Link to="/exercise">
+            <StyledButton>los!</StyledButton>
+            </Link>
+            
         </StyledDiv>
     )
 }

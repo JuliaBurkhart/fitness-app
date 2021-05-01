@@ -14,17 +14,24 @@ const Span = styled.span`
     margin-bottom: 17px;
 `
 
+const programs = ["100 Sit-Ups Challenge", "100 Push-Ups Challenge", "Liegestütze", "Sportkram"]
+
 function Browse () {
   return (
     <PageDiv>
       <h2>Browse</h2>
       <Span><SmallText>Filter</SmallText></Span>
-      <Link to="/program">
-      <BrowserEntry />
-      </Link>
-     
-      <BrowserEntry />
-      <BrowserEntry />
+
+{programs.map(program => {
+  return (
+  < >
+    <Link to="/program">
+      <BrowserEntry title={program} />
+    </Link>
+  </>
+  )
+})}
+
     </PageDiv>
       
   

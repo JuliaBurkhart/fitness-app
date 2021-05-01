@@ -1,6 +1,6 @@
 import React from "react";
-
 import styled from 'styled-components';
+import { Link } from "react-router-dom";
 
 import XClose from "../elements/XClose";
 import Button from "../elements/Button";
@@ -68,7 +68,11 @@ function Program () {
 
         <TextDiv>
             <p>{programDescription}</p>
+
+            <Link to="/workout">
             <StyledButton>jetzt starten</StyledButton>
+            </Link>
+           
         </TextDiv>
         
         <ProgramPieChart />

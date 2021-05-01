@@ -79,6 +79,7 @@ p {
 a, a:hover, a:focus, a:active {
       text-decoration: none;
       color: inherit;
+      cursor: pointer;
 }
 
 `;

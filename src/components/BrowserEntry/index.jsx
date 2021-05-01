@@ -1,6 +1,9 @@
 import React from "react";
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
+
 import SmallText from "../../elements/SmallText";
+import Heart from "../../icons/Heart";
 
 const StyledDiv = styled.div`
 background: var(--color-beige);
@@ -12,30 +15,32 @@ justify-content: center;
 align-items: center;
 position: relative;
 margin: 20px 0;
-
-& img {
-    position: absolute;
-    top: 12.6px;
-    left: 16px;
-}
-
-& span {
-    position: absolute;
-    top: 12px;
-    right: 18px;
-}
+`
+const StyledHeart = styled(Heart)`
+position: absolute;
+top: 12.6px;
+left: 16px;
+`
+const StyledSmallText = styled(SmallText)`
+position: absolute;
+top: 12px;
+right: 18px;
 `
 
-
-
-function BrowserEntry () {
+function BrowserEntry (props) {
     return (
     <StyledDiv>
-        <img src="images/heart.svg" alt=""/>
-        <SmallText>Neu</SmallText>
-        <h2>Titel des Programms</h2>
+        <StyledHeart />
+        <StyledSmallText>Neu</StyledSmallText>
+        <h2>{props.title}</h2>
     </StyledDiv>
     )
 }
+
+
+BrowserEntry.propTypes = {
+    title: PropTypes.string
+  }
+
 
 export default BrowserEntry;

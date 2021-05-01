@@ -12,6 +12,7 @@ font-weight: 400;
 line-height: 21px;
 text-align: center;
 color: var(--color-white);
+cursor: pointer;
 `
 
 export default Button;
