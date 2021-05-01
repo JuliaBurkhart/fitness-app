@@ -27,7 +27,6 @@ function TimerProgressBar (props) {
     
     // Das sind die props die mitgegeben werden sollen,
     // destruktured:
-    /* eslint-disable react/prop-types */
     const { 
         size, 
         hundredPercent,
@@ -61,7 +60,10 @@ function TimerProgressBar (props) {
     useEffect(() => {
         const progressOffset = ((hundredPercent - progress) / hundredPercent) * circumference;
         setOffset(progressOffset);
-        circleRef.current.style = 'transition: stroke-dashoffset 0.9s ease-in-out;';
+
+        // ein Prozent für die Transition
+        const onePercent = 100/hundredPercent;
+        circleRef.current.style = `transition: stroke-dashoffset ${onePercent}s;`;
     }, [setOffset, circumference, progress, offset]);
 
     return (
@@ -100,6 +102,8 @@ function TimerProgressBar (props) {
 
 TimerProgressBar.propTypes = {
     size: PropTypes.number.isRequired,
+    hundredPercent: PropTypes.number.isRequired,
+    unit: PropTypes.string.isRequired,
     progress: PropTypes.number.isRequired,
     strokeWidth: PropTypes.number.isRequired,
     circleOneStroke: PropTypes.string.isRequired,

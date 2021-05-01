@@ -1,12 +1,19 @@
 import React, { useEffect, useState } from "react";
 import FlexWrapper from "../../elements/FlexWrapper";
 import styled from 'styled-components';
-// import PropTypes from 'prop-types';
+import Button from "../../elements/Button";
 
 import TimerProgressBar from "./TimerProgressBar";
 
 const StyledFlexWrapper = styled(FlexWrapper)`
 
+`
+const Div = styled.div`
+margin-top: 100px;
+margin-bottom: 60px;
+`
+const StyledButton = styled(Button)`
+padding: 2px 5px;
 `
 
 function Timer () {
@@ -47,7 +54,7 @@ return () => clearInterval(interval);
 }, [timerOn, time]);
 
     return (
-        <>
+        <Div>
     <TimerProgressBar
     hundredPercent={initialTime}
     progress={time}
@@ -60,23 +67,23 @@ return () => clearInterval(interval);
 
             <StyledFlexWrapper justify="center" align="center" row>
             {!timerOn && time === initialTime && (
-            <button onClick={()=> setTimerOn(true)}>Start</button>
+            <StyledButton onClick={()=> setTimerOn(true)}>Start</StyledButton>
             )}
 
             {timerOn && (
-            <button onClick={()=> setTimerOn(false)}>Pause</button>
+            <StyledButton onClick={()=> setTimerOn(false)}>Pause</StyledButton>
             )}
 
             {!timerOn && time !== 0 && time !== initialTime && (
-            <button onClick={()=> setTimerOn(true)}>Weiter</button>
+            <StyledButton onClick={()=> setTimerOn(true)}>Weiter</StyledButton>
             )}
 
             {!timerOn && time === 0 && (
-            <button onClick={()=> setTime(initialTime)}>Nochmal</button>
+            <StyledButton onClick={()=> setTime(initialTime)}>Nochmal</StyledButton>
             )}
             </StyledFlexWrapper>
    
-</>
+</Div>
         
       
     )
