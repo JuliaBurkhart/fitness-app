@@ -26,3 +26,9 @@ export const GET_IS_LOGGED_IN = gql`
     userIsLoggedIn @client
   }
 `;
+
+export const GET_USER = gql`
+  query User {
+    user @client
+  }
+`;

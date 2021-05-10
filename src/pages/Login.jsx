@@ -1,7 +1,7 @@
 import React from "react";
 import styled from 'styled-components';
 
-import { userIsLoggedInVar } from "../index"; 
+import { userIsLoggedInVar, userVar } from "../index"; 
 
 
 import Button from "../elements/Button";
@@ -16,15 +16,14 @@ text-align: center;
 
 
 function Login () {
-
+    console.log(userIsLoggedInVar());
 
     function handleSubmit (event) {
         event.preventDefault();
         const userName = event.target[0].value;
         console.log(userName);
-
-        userIsLoggedInVar(true);   
-        console.log(userIsLoggedInVar());
+        userIsLoggedInVar(true); 
+        userVar({name: userName});  
     }
 
     return (

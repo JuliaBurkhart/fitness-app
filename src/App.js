@@ -23,11 +23,11 @@ function App() {
   if (loading) return <Spinner />
 if (error) return <p>`Error: ${error.message}`</p>
  const isLoggedIn = data.userIsLoggedIn;
+ console.log(isLoggedIn);
   return (
 
       <div>
       <GlobalStyle />
-      <Route path="/" exact component={Login} /> 
 
       <Route exact path="/">
   {isLoggedIn ? <Redirect to="/dashboard" /> : <Login />}

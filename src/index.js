@@ -27,7 +27,10 @@ extend type Query {
   userIsLoggedIn: Boolean!
 }
 `
-export const userIsLoggedInVar = makeVar(!!localStorage.getItem('token'));
+
+export const userIsLoggedInVar = makeVar(false);
+
+export const userVar = makeVar({});
 
 export const cache = new InMemoryCache({
   typePolicies: {
@@ -38,6 +41,11 @@ export const cache = new InMemoryCache({
               return userIsLoggedInVar();         
          }
                 },
+        user: {
+          read() {
+            return userVar();
+          }
+        },
         launches: {
           // ...field policy definitions...
         }
@@ -63,3 +71,4 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
+console.log(userVar());
