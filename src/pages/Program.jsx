@@ -2,13 +2,17 @@ import React from "react";
 import styled from 'styled-components';
 import { Link } from "react-router-dom";
 
+
+import { useQuery } from "@apollo/client";
+import {GET_PROGRAM_BY_ID } from "../graphql/queries";
+
 import XClose from "../elements/XClose";
 import Button from "../elements/Button";
 import FlexWrapper from "../elements/FlexWrapper";
 import ProgramProperties from "../components/ProgramProperties";
 import ProgramPieChart from "../components/ProgramPieChart";
 import ScheduleOverview from "../components/ScheduleOverview";
-
+import Spinner from "../components/Spinner";
 
 const TitleDiv = styled.div`
 background: var(--gradient-yellow-rose);
@@ -50,18 +54,32 @@ const programDescription = "Weit hinten, hinter den Wortbergen, fern der Länder
 
 
 
-function Program () {
+
+
+
+/* eslint-disable react/prop-types */
+
+function Program (props) {
+ const thisID = props.match.params.programId;
+console.log(props);
+const {loading, error, data} = useQuery(GET_PROGRAM_BY_ID, {
+    variables: { id: thisID }});
+
+if (loading) return <Spinner />
+if (error) return <p>`Error: ${error.message}`</p>
+console.log(data.Program);
+
     return(
         < >
         <TitleDiv>
 
             <XClose />
-            <h1>Titel des Programms</h1>
+            <h1>{data.Program.title}</h1>
 
             <StyledFlexWrapper justify="space-around">
-                <ProgramProperties text="abnehmen" />
-                <ProgramProperties text="leicht" />
-                <ProgramProperties text="6 Wochen" />
+                <ProgramProperties text={`${data.Program.focus}`} />
+                <ProgramProperties text={`${data.Program.difficulty}`} />
+                <ProgramProperties text={`${data.Program.duration} weeks`} />
             </StyledFlexWrapper>
       
         </TitleDiv>

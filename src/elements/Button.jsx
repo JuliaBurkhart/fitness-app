@@ -13,6 +13,7 @@ line-height: 21px;
 text-align: center;
 color: var(--color-white);
 cursor: pointer;
+padding: 12px 25px 12px 25px;
 `
 
 export default Button;
