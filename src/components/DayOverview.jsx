@@ -29,7 +29,10 @@ background: var(--color-white);
 padding: 15px 18px 50px 14px;
 border-radius: 0 5px 5px 0;
 `
-function DayOverview () {
+
+/* eslint-disable react/prop-types */
+function DayOverview (props) {
+
     return (
         <StyledFlexWrapper>
             <ButtonBox>
@@ -37,10 +40,8 @@ function DayOverview () {
             </ButtonBox>
 
             <ContentBox>
-                <p>Tag 1</p>
-                <SmallText>XXX kcal · 26 Min. · Beweglichkeit</SmallText>
-
-
+                <p>Tag {props.day}</p>
+                <SmallText>{props.calories} kcal · {props.duration} Min. · {props.categories.map((categorie) => categorie)}</SmallText>
             </ContentBox>
    
         </StyledFlexWrapper>

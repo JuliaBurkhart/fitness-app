@@ -95,7 +95,7 @@ console.log(data.Program);
         
         <ProgramPieChart />
 
-        <ScheduleOverview />
+        <ScheduleOverview programId={thisID}/>
 
         </>
     )
