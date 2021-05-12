@@ -2,6 +2,10 @@ import React from "react";
 import styled from 'styled-components';
 import { Link } from "react-router-dom";
 
+import { GET_WORKOUT_BY_ID } from "../graphql/queries";
+import { useQuery } from "@apollo/client";
+
+import Spinner from "../components/Spinner";
 import SmallText from "../elements/SmallText";
 import FlexWrapper from "../elements/FlexWrapper";
 import ArrowBack from "../elements/ArrowBack";
@@ -40,12 +44,25 @@ right: 18px;
 const StyledChain = styled(Chain)`
 margin-top: 35px;
 `
+/* eslint-disable react/prop-types */
 
-function Workout () {
+function Workout (props) {
+    console.log(props.match.params);
+   const thisID = props.match.params.workoutId;
+   const programSlug = props.match.params.programSlug;
+   const thisDay = props.match.params.day;
+
+    const { data, loading, error } = useQuery(GET_WORKOUT_BY_ID, {
+        variables: { id: thisID }});
+    if (loading) return <Spinner />;
+    if (error) return <p>`Error: ${error.message}`</p>
+    console.log(data);
+
+
     return (
         <StyledDiv>
             <FlexWrapper justify="center">
-                <SmallText>Titel des Programms</SmallText>
+                <SmallText>{programSlug}</SmallText>
             </FlexWrapper>
 
             <Wrapper>
@@ -55,8 +72,8 @@ function Workout () {
             <StyledChain />
 
             <StyledFlexWrapper column justify="center" align="center">
-                <h1>Tag 1</h1>
-                <SmallText>XXX kcal · 26 Min. · Beweglichkeit</SmallText>
+                <h1>Tag {thisDay}</h1>
+                <SmallText>{data.Workout.calories} kcal · {data.Workout.duration} Min. · {data.Workout.categories}</SmallText>
             </StyledFlexWrapper>
 
             <Link to="/exercise">

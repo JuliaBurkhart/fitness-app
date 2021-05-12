@@ -25,12 +25,17 @@ const httpLink = createHttpLink({
 export const typeDefs = gql`
 extend type Query {
   userIsLoggedIn: Boolean!
+  user: String!
+  loveList: [ID!]
 }
 `
 
 export const userIsLoggedInVar = makeVar(false);
 
 export const userVar = makeVar({});
+
+export const loveListVar = makeVar([]);
+
 
 export const cache = new InMemoryCache({
   typePolicies: {
@@ -46,6 +51,11 @@ export const cache = new InMemoryCache({
             return userVar();
           }
         },
+        loveList: {
+          read() {
+            return loveListVar();
+          }
+        },
         launches: {
           // ...field policy definitions...
         }
@@ -57,13 +67,16 @@ export const cache = new InMemoryCache({
 const client = new ApolloClient({
   link: httpLink,
   cache,
+  headers: {
+    authorization: localStorage.getItem("token") || ""
+  },
   typeDefs
 });
 
 
 ReactDOM.render(
   <ApolloProvider client={client}>
-<BrowserRouter>
+  <BrowserRouter>
     <App />
   </BrowserRouter>
   </ApolloProvider>
@@ -71,4 +84,3 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-console.log(userVar());

@@ -1,5 +1,6 @@
 import React from "react";
 import styled from 'styled-components';
+import { Link } from "react-router-dom";
 
 import PlayButton from "../elements/PlayButton";
 import SmallText from "../elements/SmallText";
@@ -32,12 +33,19 @@ border-radius: 0 5px 5px 0;
 
 /* eslint-disable react/prop-types */
 function DayOverview (props) {
-
+    console.log("props von dayoverview");
+console.log(props);
     return (
         <StyledFlexWrapper>
+            <Link to={{
+            pathname: `/workout/${props.programSlug}/${props.workoutId}/${props.day}`,
+            key: `${props.workoutId}`,
+            }}>
             <ButtonBox>
             <PlayButton />
             </ButtonBox>
+            </Link>
+           
 
             <ContentBox>
                 <p>Tag {props.day}</p>

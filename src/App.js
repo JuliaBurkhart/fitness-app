@@ -42,7 +42,8 @@ if (error) return <p>`Error: ${error.message}`</p>
       <Route path="/program/:programId" component={Program} />
       <Route path="/program" component={Navbar} />
 
-      <Route path="/workout" component={Workout} />
+      <Route path="/workout/:programSlug/:workoutId/:day" component={Workout} />
+  
       <Route path="/exercise" component={Exercise} />
 
       

@@ -1,6 +1,6 @@
 import React from "react";
 import styled from 'styled-components';
-import { Link } from "react-router-dom";
+
 
 import { useQuery } from "@apollo/client";
 
@@ -42,16 +42,8 @@ console.log(data.allProgram);
 
 
       {data.allProgram.map(program => {
-  return (
-  < >
-    <Link to={{
-      pathname: `/program/${program._id}`,
-      key: `${program._id}`
-      }}>
-
-      <BrowserEntry title={program.title} />
-    </Link>
-  </>
+  return ( 
+      <BrowserEntry title={program.title} id={program._id} key={program._id} />
   )
 })}
 

@@ -45,13 +45,11 @@ position: relative;
 const StyledButton = styled(Button)`
 width: 147px;
 height: 45px;
-position: absolute;
-top: 119px;
-left: 139px;
+position: fixed;
+z-index: 1;
+bottom: 60px;
+left: calc(100vw/2 - 73.5px);
 `
-
-const programDescription = "Weit hinten, hinter den Wortbergen, fern der Länder Vokalien und Konsonantien leben die Blindtexte. Abgeschieden wohnen sie in Buchstabhausen an der Küste des Semantik, eines großen Sprachozeans. Ein kleines Bächlein namens Duden fließt durch ihren Ort und versorgt sie mit den nötigen Regelialien. Es ist ein paradiesmatisches Land, in dem einem gebratene Satzteile in den Mund fliegen.";
-
 
 
 
@@ -61,13 +59,11 @@ const programDescription = "Weit hinten, hinter den Wortbergen, fern der Länder
 
 function Program (props) {
  const thisID = props.match.params.programId;
-console.log(props);
 const {loading, error, data} = useQuery(GET_PROGRAM_BY_ID, {
     variables: { id: thisID }});
 
 if (loading) return <Spinner />
 if (error) return <p>`Error: ${error.message}`</p>
-console.log(data.Program);
 
     return(
         < >
@@ -85,13 +81,12 @@ console.log(data.Program);
         </TitleDiv>
 
         <TextDiv>
-            <p>{programDescription}</p>
+            <p>{data.Program.description}</p>
+        </TextDiv>
 
             <Link to="/workout">
             <StyledButton>jetzt starten</StyledButton>
             </Link>
-           
-        </TextDiv>
         
         <ProgramPieChart />
 

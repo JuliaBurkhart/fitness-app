@@ -2,7 +2,7 @@ import React from "react";
 import styled from 'styled-components';
 
 import { useQuery } from "@apollo/client";
-import {GET_WORKOUT_BY_PROGRAM_ID } from "../graphql/queries";
+import {GET_WORKOUTS_BY_PROGRAM_ID } from "../graphql/queries";
 
 import SmallText from "../elements/SmallText";
 import FlexWrapper from "../elements/FlexWrapper";
@@ -26,11 +26,12 @@ function ScheduleOverview (props) {
 const thisID = props.programId;
 
 
-    const {loading, error, data} = useQuery(GET_WORKOUT_BY_PROGRAM_ID, {
+    const {loading, error, data} = useQuery(GET_WORKOUTS_BY_PROGRAM_ID, {
         variables: { id: thisID }});
-    
+
     if (loading) return <Spinner />
     if (error) return <p>`Error: ${error.message}`</p>
+    console.log(data.Program.slug.current);
 const workouts = [...data.Program.workouts];
 const sortedWorkouts = workouts.sort((a, b) => {
     if (a.day > b.day) {
@@ -42,6 +43,7 @@ const sortedWorkouts = workouts.sort((a, b) => {
       return 0;
 })
 
+console.log(data);
     return (
         <SectionDiv>
 
@@ -56,6 +58,7 @@ return(
     <DayOverview 
     key={workout.day}
     workoutId={workout.Workout._id} 
+    programSlug={data.Program.slug.current}
     day={workout.day}
     calories={workout.Workout.calories}
     duration={workout.Workout.duration}
