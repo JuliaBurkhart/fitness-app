@@ -56,8 +56,29 @@ query WorkoutById ($id: ID!) {
     calories
     duration
     categories
+    exercises {
+      ... on ExerciseWithDuration {
+        duration
+        exercise {
+          title
+        }
+        }
+    ... on ExerciseWithReps {
+      reps
+      exercise {
+        title
+      }
+    }
+  }
+  image {
+    asset {
+      url
+      altText
+    }
   }
 }
+}
+
 `
 
 // Reactive Variables:

@@ -12,6 +12,7 @@ const GlobalStyle = createGlobalStyle`
 
 html {
     box-sizing: border-box;
+  
 
 // COLOR VARIABLES 
     --color-white: rgba(255,255,255);
@@ -43,6 +44,9 @@ html {
   }
   
 body {
+    max-width: 414px;
+    margin-left: auto;
+    margin-right: auto;
     background: var(--color-white); 
     color: var(--color-blue-dark);
     font-family: 'Montserrat', sans-serif;

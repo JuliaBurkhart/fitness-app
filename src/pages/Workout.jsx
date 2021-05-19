@@ -16,25 +16,40 @@ import Chain from "../icons/Chain";
 const StyledDiv = styled.div`
 position: relative;
 background: var(--gradient-yellow-rose);
-width: 100vw;
+height: 100vh;
+width: 100%;
+margin-left: auto;
+margin-right: auto;
 padding-top: 25px; 
 padding-left: 17px;
+padding-right: 17px;
+padding-bottom: 99px;
+text-align: center;
 `
 const StyledFlexWrapper = styled(FlexWrapper)`
-height: 100vh;
-width: 100vw;
+height: 100%;
+width: 100%;
+/* max-width: 414px; */
+margin: 0 auto 0 auto;
 
 & h1 {
     margin-bottom: 40px;
 }
 `
-
-const StyledButton = styled(Button)`
+const ButtonWrapper = styled.div`
+display: flex;
+justify-content: center;
+align-items: center;
+width: 100%;
+/* max-width: 414px; */
+margin: 0 auto 0 auto;
 position: absolute;
 bottom: 99px;
-left: 168px;
-width: 77px;
-height: 45px;
+left: 0;
+`
+
+const StyledButton = styled(Button)`
+
 `
 const Wrapper = styled.div`
 position: absolute;
@@ -49,9 +64,13 @@ margin-top: 35px;
 function Workout (props) {
     console.log(props.match.params);
    const thisID = props.match.params.workoutId;
-   const programSlug = props.match.params.programSlug;
+   const programTitle = convertSlugToText(props.match.params.programSlug);
    const thisDay = props.match.params.day;
 
+   function convertSlugToText(slug) {
+return slug.split('-').map(word => word.replace(/^./, word[0].toUpperCase())).join(' ');
+   }
+   
     const { data, loading, error } = useQuery(GET_WORKOUT_BY_ID, {
         variables: { id: thisID }});
     if (loading) return <Spinner />;
@@ -62,7 +81,7 @@ function Workout (props) {
     return (
         <StyledDiv>
             <FlexWrapper justify="center">
-                <SmallText>{programSlug}</SmallText>
+                <SmallText>{programTitle}</SmallText>
             </FlexWrapper>
 
             <Wrapper>
@@ -73,12 +92,17 @@ function Workout (props) {
 
             <StyledFlexWrapper column justify="center" align="center">
                 <h1>Tag {thisDay}</h1>
+                <h3>{data.Workout.title}</h3>
                 <SmallText>{data.Workout.calories} kcal · {data.Workout.duration} Min. · {data.Workout.categories}</SmallText>
+               
+                
             </StyledFlexWrapper>
-
-            <Link to="/exercise">
+<ButtonWrapper>
+<Link to="/exercise">
             <StyledButton>los!</StyledButton>
             </Link>
+</ButtonWrapper>
+          
             
         </StyledDiv>
     )

@@ -34,7 +34,7 @@ const StyledFlexWrapper = styled(FlexWrapper)`
     position: absolute;
     bottom: 21px;
     left: 0;
-    width: 100vw;
+    width: 100%;
 `
 
 const TextDiv = styled.div`

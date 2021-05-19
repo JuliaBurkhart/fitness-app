@@ -2,6 +2,8 @@ import React from "react";
 import styled from 'styled-components';
 import { Link } from "react-router-dom";
 
+import FlexWrapper from "../elements/FlexWrapper";
+
 import SvgHome from "../icons/Home";
 import SvgBrowse from "../icons/Browse";
 import SvgProfile from "../icons/Profile"
@@ -15,11 +17,14 @@ bottom: 0;
 left: 0;
 z-index: 100;
 display: flex;
+flex-wrap: nowrap;
 flex-direction: row;
-justify-content: space-around;
+align-items: center;
+justify-content: center;
+`
 
 
-& div {
+const Div = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -27,7 +32,6 @@ justify-content: space-around;
     margin-top: 9px;
     margin-bottom: 1px;
     height: 42px;
-}
 
 & p {
     font-weight: 400;
@@ -40,31 +44,36 @@ justify-content: space-around;
     margin-top: 4px;
 }
 `
+const StyledFlexWrapper = styled(FlexWrapper)`
+width: 100%;
+max-width: 414px;
+`
 
 function Navbar () {
     return (
         <SectionDiv>
+            <StyledFlexWrapper justify="space-around">
             <Link to="/">
-            <div>
+            <Div>
                 <SvgHome />
                 <p>Home</p>
-            </div>
+            </Div>
             </Link>
             
             <Link to="/browse">
-            <div>
+            <Div>
                 <SvgBrowse/>
                 <p>Browse</p>
-            </div>
+            </Div>
             </Link>
            
            <Link to="/profil">
-           <div>
+           <Div>
                 <SvgProfile />
                 <p>Profil</p>
-            </div>
+            </Div>
            </Link>
-            
+           </StyledFlexWrapper> 
         </SectionDiv>
             )
 }

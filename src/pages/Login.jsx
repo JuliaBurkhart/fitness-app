@@ -9,7 +9,7 @@ import FlexWrapper from "../elements/FlexWrapper";
 
 
 const StyledFlexWrapper = styled(FlexWrapper)`
-width: 100vw;
+width: auto;
 height: 100vh;
 text-align: center;
 `
