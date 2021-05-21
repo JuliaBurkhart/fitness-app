@@ -1,6 +1,7 @@
 import React from "react";
 import styled from 'styled-components';
 import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 import { GET_WORKOUT_BY_ID } from "../graphql/queries";
 import { useQuery } from "@apollo/client";
@@ -51,7 +52,8 @@ left: 0;
 const StyledButton = styled(Button)`
 
 `
-const Wrapper = styled.div`
+const Wrapper = styled.button`
+cursor: pointer;
 position: absolute;
 top: 23px;
 right: 18px;
@@ -62,7 +64,6 @@ margin-top: 35px;
 /* eslint-disable react/prop-types */
 
 function Workout (props) {
-    console.log(props.match.params);
    const thisID = props.match.params.workoutId;
    const programTitle = convertSlugToText(props.match.params.programSlug);
    const thisDay = props.match.params.day;
@@ -75,8 +76,12 @@ return slug.split('-').map(word => word.replace(/^./, word[0].toUpperCase())).jo
         variables: { id: thisID }});
     if (loading) return <Spinner />;
     if (error) return <p>`Error: ${error.message}`</p>
-    console.log(data);
+console.log(data);
+const firstTypename = data.Workout.exercises[0].__typename;
+const firstId = data.Workout.exercises[0].exercise._id;
 
+
+    let history = useHistory();
 
     return (
         <StyledDiv>
@@ -84,7 +89,7 @@ return slug.split('-').map(word => word.replace(/^./, word[0].toUpperCase())).jo
                 <SmallText>{programTitle}</SmallText>
             </FlexWrapper>
 
-            <Wrapper>
+            <Wrapper onClick={() => history.goBack()}>
                 <ArrowBack />
             </Wrapper>
           
@@ -98,7 +103,11 @@ return slug.split('-').map(word => word.replace(/^./, word[0].toUpperCase())).jo
                 
             </StyledFlexWrapper>
 <ButtonWrapper>
-<Link to="/exercise">
+
+<Link to={{
+            pathname: `/exercise/${firstTypename}/${firstId}`,
+            }}>
+
             <StyledButton>los!</StyledButton>
             </Link>
 </ButtonWrapper>

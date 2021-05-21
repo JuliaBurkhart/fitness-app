@@ -60,13 +60,16 @@ query WorkoutById ($id: ID!) {
       ... on ExerciseWithDuration {
         duration
         exercise {
+          _id
           title
         }
         }
     ... on ExerciseWithReps {
       reps
       exercise {
+        _id
         title
+        reps
       }
     }
   }
@@ -78,8 +81,14 @@ query WorkoutById ($id: ID!) {
   }
 }
 }
-
 `
+// export const GET_EXERCISE_BY_ID = gql`
+// query ExerciseById ($id: ID!) {
+//   Exercise (id) {
+//      title
+//   }
+// }
+// `
 
 // Reactive Variables:
 

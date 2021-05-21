@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 
 import { useQuery } from "@apollo/client";
 import {GET_PROGRAM_BY_ID } from "../graphql/queries";
+import {GET_WORKOUTS_BY_PROGRAM_ID } from "../graphql/queries";
 
 import XClose from "../elements/XClose";
 import Button from "../elements/Button";
@@ -61,15 +62,22 @@ function Program (props) {
  const thisID = props.match.params.programId;
 const {loading, error, data} = useQuery(GET_PROGRAM_BY_ID, {
     variables: { id: thisID }});
+const {loading: loadingW, error: errorW, data: dataW} = useQuery(GET_WORKOUTS_BY_PROGRAM_ID, {
+        variables: { id: thisID }});
 
 if (loading) return <Spinner />
 if (error) return <p>`Error: ${error.message}`</p>
+if (loadingW) return <Spinner />
+if (errorW) return <p>`Error: ${errorW.message}`</p>
+
 
     return(
         < >
         <TitleDiv>
-
-            <XClose />
+<Link to="/browse">
+<XClose />
+</Link>
+           
             <h1>{data.Program.title}</h1>
 
             <StyledFlexWrapper justify="space-around">
@@ -84,7 +92,10 @@ if (error) return <p>`Error: ${error.message}`</p>
             <p>{data.Program.description}</p>
         </TextDiv>
 
-            <Link to="/workout">
+        <Link to={{
+            pathname: `/workout/${dataW.Program.slug.current}/${dataW.Program.workouts[0].Workout._id}/1`,
+            key: `${props.workoutId}`,
+            }}>
             <StyledButton>jetzt starten</StyledButton>
             </Link>
         

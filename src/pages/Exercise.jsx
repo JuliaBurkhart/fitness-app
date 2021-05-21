@@ -6,6 +6,7 @@ import SmallText from "../elements/SmallText";
 import FlexWrapper from "../elements/FlexWrapper";
 import Chain from "../icons/Chain";
 import Timer from "../components/Timer";
+import Counter from "../components/Counter";
 
 
 const StyledDiv = styled.div`
@@ -20,8 +21,13 @@ const StyledChain = styled(Chain)`
 margin-top: 35px;
 `
 
+/* eslint-disable react/prop-types */
 
-function Exercise () {
+function Exercise (props) {
+    const exerciseId = props.match.params.exerciseId;
+    const exerciseType = props.match.params.exerciseType;
+    console.log(exerciseId);
+    console.log(exerciseType);
     return (
         <StyledDiv>
             <FlexWrapper justify="center">
@@ -30,11 +36,13 @@ function Exercise () {
 
           
             <StyledChain />
+{ (exerciseType === "ExerciseWithReps") ? <Counter /> : <Timer /> }
 
-            <Timer />
+            
+          
             
             <FlexWrapper justify="center" align="center">
-                <h1>Plank</h1>
+                <h1>{exerciseId}</h1>
             </FlexWrapper>
                 
         </StyledDiv>

@@ -85,7 +85,15 @@ a, a:hover, a:focus, a:active {
       color: inherit;
       cursor: pointer;
 }
-
+button {
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
 `;
 
 export default GlobalStyle;
