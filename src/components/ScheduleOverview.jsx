@@ -43,7 +43,9 @@ const sortedWorkouts = workouts.sort((a, b) => {
       return 0;
 })
 
-console.log(data);
+console.log(sortedWorkouts);
+
+
     return (
         <SectionDiv>
 
@@ -54,6 +56,7 @@ console.log(data);
 
 
             {sortedWorkouts.map((workout) => {
+             
 return(
     <DayOverview 
     key={workout.day}

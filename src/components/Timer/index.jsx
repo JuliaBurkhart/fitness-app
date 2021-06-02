@@ -15,9 +15,11 @@ margin-bottom: 60px;
 const StyledButton = styled(Button)`
 padding: 2px 5px;
 `
+/* eslint-disable react/prop-types */
 
-function Timer () {
-const initialTime = 30;
+
+function Timer (props) {
+const initialTime = props.duration;
 
 const [time, setTime] = useState(initialTime);
 const [timerOn, setTimerOn] = useState(false);

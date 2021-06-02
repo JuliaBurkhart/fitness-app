@@ -80,6 +80,8 @@ console.log(data);
 const firstTypename = data.Workout.exercises[0].__typename;
 const firstId = data.Workout.exercises[0].exercise._id;
 
+const repsDuration =  (firstTypename === "ExerciseWithReps") ? data.Workout.exercises[0].reps : data.Workout.exercises[0].duration
+
 
     let history = useHistory();
 
@@ -105,7 +107,7 @@ const firstId = data.Workout.exercises[0].exercise._id;
 <ButtonWrapper>
 
 <Link to={{
-            pathname: `/exercise/${firstTypename}/${firstId}`,
+            pathname: `/exercise/${firstTypename}/${firstId}/${repsDuration}`,
             }}>
 
             <StyledButton>los!</StyledButton>

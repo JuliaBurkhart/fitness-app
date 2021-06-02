@@ -44,7 +44,7 @@ if (error) return <p>`Error: ${error.message}`</p>
 
       <Route path="/workout/:programSlug/:workoutId/:day" component={Workout} />
   
-      <Route path="/exercise/:exerciseType/:exerciseId" component={Exercise} />
+      <Route path="/exercise/:exerciseType/:exerciseId/:repsDuration" component={Exercise} />
 
       
       </div>

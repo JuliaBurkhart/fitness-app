@@ -21,10 +21,11 @@ font-weight: 700;
 font-style: normal;
 font-size: 64px;
 `
+/* eslint-disable react/prop-types */
 
-function Counter () {
-
-    const [count, setCount] = useState(5);
+function Counter (props) {
+const initialReps = props.reps;
+    const [count, setCount] = useState(initialReps);
 
 function handleClick() {
     if (count > 0) {

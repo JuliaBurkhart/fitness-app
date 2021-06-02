@@ -11,7 +11,7 @@ import XClose from "../elements/XClose";
 import Button from "../elements/Button";
 import FlexWrapper from "../elements/FlexWrapper";
 import ProgramProperties from "../components/ProgramProperties";
-import ProgramPieChart from "../components/ProgramPieChart";
+import PieChartSection from "../components/PieChartSection";
 import ScheduleOverview from "../components/ScheduleOverview";
 import Spinner from "../components/Spinner";
 
@@ -99,7 +99,7 @@ if (errorW) return <p>`Error: ${errorW.message}`</p>
             <StyledButton>jetzt starten</StyledButton>
             </Link>
         
-        <ProgramPieChart />
+        <PieChartSection />
 
         <ScheduleOverview programId={thisID}/>
 

@@ -49,7 +49,7 @@ function DayOverview (props) {
 
             <ContentBox>
                 <p>Tag {props.day}</p>
-                <SmallText>{props.calories} kcal · {props.duration} Min. · {props.categories.map((categorie) => categorie)}</SmallText>
+                <SmallText>{props.calories} kcal · {props.duration} Min. · {props.categories.map((categorie) => categorie + " ")}</SmallText>
             </ContentBox>
    
         </StyledFlexWrapper>
