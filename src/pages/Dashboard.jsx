@@ -1,4 +1,5 @@
 import React from "react";
+import styled from 'styled-components';
 
 import { useQuery } from "@apollo/client";
 import { GET_USER } from "../graphql/queries";
@@ -6,6 +7,10 @@ import { GET_USER } from "../graphql/queries";
 import Greeting from "../components/Greeting";
 import TodaysWorkout from "../components/TodaysWorkout";
 import Spinner from "../components/Spinner";
+
+const PageDiv = styled.div`
+padding: 0 20px 70px 0;
+`
 
 function Dashboard () {
 
@@ -16,10 +21,10 @@ function Dashboard () {
    const userName = data.user.name;
 
     return(
-        <>
+        <PageDiv>
         <Greeting name={userName} />
         <TodaysWorkout />
-        </ >
+        </PageDiv>
     )
 }
 

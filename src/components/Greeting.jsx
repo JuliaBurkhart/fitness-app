@@ -40,7 +40,7 @@ function Greeting (props) {
     } else {
         return (
             <StyledDiv>
-                <h1>Guten<br />Nacht,<br />{props.name}</h1>
+                <h1>Gute<br />Nacht,<br />{props.name}</h1>
                 </StyledDiv>)
     }
 }

@@ -1,5 +1,11 @@
 import React from "react";
 import styled from 'styled-components';
+
+import { GET_WORKOUT_BY_ID } from "../../graphql/queries";
+import {GET_PROGRAM_BY_ID } from "../../graphql/queries";
+import { useQuery } from "@apollo/client";
+
+import Spinner from "../../components/Spinner";
 import titlepic from "./images/titlepic.png";
 import SmallText from "../../elements/SmallText";
 import FlexWrapper from "../../elements/FlexWrapper";
@@ -33,6 +39,20 @@ padding-top: 10px;
 `
 
 function TodaysWorkout () {
+
+    // später ersetzen wenn es tatsächlich gespeicherte User-Infos gibt:
+    const todaysWorkoutId = "dd3e2b36-5eed-41d4-9733-1e464049ab75";
+    const todaysWorkoutProgramId = "078f930d-a67d-4016-ad6d-797e38804e3e";
+
+    const { data, loading, error } = useQuery(GET_WORKOUT_BY_ID, {
+        variables: { id: todaysWorkoutId }});
+    
+    const {loading: loadingP, error: errorP, data: dataP} = useQuery(GET_PROGRAM_BY_ID, {
+        variables: { id: todaysWorkoutProgramId }});
+
+    if (loading || loadingP) return <Spinner />;
+    if (error || errorP) return <p>`Error. We have problems with loading the data. Sorry!`</p>
+
     return (
         <SectionDiv>
             <FlexWrapper justify="space-between" align="center">
@@ -45,9 +65,9 @@ function TodaysWorkout () {
             </ImgBox>
            
            <DescriptionBox>
-                <p>Titel des Workouts</p>
-                <p>Titel des Programms</p>
-                <span>XXX kcal · 26 Min. · Beweglichkeit</span>
+                <p>{data.Workout.title}</p>
+                <p>{dataP.Program.title}</p>
+                <span>{data.Workout.calories} kcal · {data.Workout.duration} Min. · {data.Workout.categories.map((categorie) => categorie + " ")}</span>
             </DescriptionBox>
         </SectionDiv>
     )

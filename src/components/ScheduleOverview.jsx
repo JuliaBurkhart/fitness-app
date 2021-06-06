@@ -21,6 +21,8 @@ margin-bottom: 18px;
     display: inline-block;
 }
 `
+
+
 /* eslint-disable react/prop-types */
 function ScheduleOverview (props) {
 const thisID = props.programId;
@@ -31,9 +33,9 @@ const thisID = props.programId;
 
     if (loading) return <Spinner />
     if (error) return <p>`Error: ${error.message}`</p>
-    console.log(data.Program.slug.current);
-const workouts = [...data.Program.workouts];
-const sortedWorkouts = workouts.sort((a, b) => {
+ 
+    const workouts = [...data.Program.workouts];
+    const sortedWorkouts = workouts.sort((a, b) => {
     if (a.day > b.day) {
         return 1;
       }
@@ -43,7 +45,7 @@ const sortedWorkouts = workouts.sort((a, b) => {
       return 0;
 })
 
-console.log(sortedWorkouts);
+
 
 
     return (

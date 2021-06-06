@@ -33,8 +33,8 @@ border-radius: 0 5px 5px 0;
 
 /* eslint-disable react/prop-types */
 function DayOverview (props) {
-//     console.log("props von dayoverview");
-// console.log(props);
+
+    
     return (
         <StyledFlexWrapper>
             <Link to={{

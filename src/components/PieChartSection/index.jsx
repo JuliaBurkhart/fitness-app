@@ -1,6 +1,11 @@
 import React from "react";
 import styled from 'styled-components';
-// import SmallText from "../elements/SmallText";
+
+import { useQuery } from "@apollo/client";
+import {GET_WORKOUTS_BY_PROGRAM_ID } from "../../graphql/queries";
+
+import calculateValues from "./calculateValues";
+import Spinner from "../../components/Spinner";
 import FlexWrapper from "../../elements/FlexWrapper";
 import MyPieChart from "./PieChart";
 
@@ -11,26 +16,25 @@ background-color: var(--color-white);
 padding: 30px 20px 30px 20px;
 height: 285px;
 `
-
-// const Bulletpoint = styled.span`
-// display: inline-block;
-// width: 14px;
-// height: 14px;
-// border-radius: 50px;
-// background: var(--color-green-mint);
-// margin-right: 12px;
-// `
-
-// const Li = styled.li`
-// list-style: none;
-// padding: 9px 66px 9px 0;
-// `
 const StyledFlexWrapper = styled(FlexWrapper)`
 margin-top: 40px;
 `
+/* eslint-disable react/prop-types */
 
-function ProgramPieChart () {
+function ProgramPieChart (props) {
+   
+    const thisID = props.programId;
 
+    const {loading, error, data} = useQuery(GET_WORKOUTS_BY_PROGRAM_ID, {
+        variables: { id: thisID }});
+
+    if (loading) return <Spinner />
+    if (error) return <p>`Error: ${error.message}`</p>
+ 
+    const workouts = [...data.Program.workouts];
+
+    const dataForPie = calculateValues(workouts); 
+   
   
 return (
    <SectionDiv>
@@ -40,16 +44,7 @@ return (
        <StyledFlexWrapper justify="space-between" align="center" content="center">
 
 
-    <MyPieChart />
-   
-           
-{/* 
-            <ul>
-                <Li><Bulletpoint /><SmallText>Krafttraining</SmallText></Li>
-                <Li><Bulletpoint /><SmallText>Cardio</SmallText></Li>
-                <Li><Bulletpoint /><SmallText>Koordinaten</SmallText></Li>
-                <Li><Bulletpoint /><SmallText>Beweglichkeit</SmallText></Li>
-            </ul> */}
+    <MyPieChart data={dataForPie} />
 
        </StyledFlexWrapper>
      

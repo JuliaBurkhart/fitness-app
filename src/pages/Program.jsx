@@ -99,7 +99,7 @@ if (errorW) return <p>`Error: ${errorW.message}`</p>
             <StyledButton>jetzt starten</StyledButton>
             </Link>
         
-        <PieChartSection />
+        <PieChartSection programId={thisID}/>
 
         <ScheduleOverview programId={thisID}/>
 
