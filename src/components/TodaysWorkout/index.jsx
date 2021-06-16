@@ -41,14 +41,16 @@ padding-top: 10px;
 function TodaysWorkout () {
 
     // später ersetzen wenn es tatsächlich gespeicherte User-Infos gibt:
-    const todaysWorkoutId = "dd3e2b36-5eed-41d4-9733-1e464049ab75";
-    const todaysWorkoutProgramId = "078f930d-a67d-4016-ad6d-797e38804e3e";
+    const todaysWorkoutId = "1a985d3f-73d5-414c-abac-bee46d5a6a32";
+    const todaysWorkoutProgramId = "316cbe28-5676-4e31-a56a-b861bd36f3d1";
 
     const { data, loading, error } = useQuery(GET_WORKOUT_BY_ID, {
         variables: { id: todaysWorkoutId }});
+        console.log(data);
     
     const {loading: loadingP, error: errorP, data: dataP} = useQuery(GET_PROGRAM_BY_ID, {
         variables: { id: todaysWorkoutProgramId }});
+        console.log(dataP);
 
     if (loading || loadingP) return <Spinner />;
     if (error || errorP) return <p>`Error. We have problems with loading the data. Sorry!`</p>

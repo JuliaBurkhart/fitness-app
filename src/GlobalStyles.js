@@ -73,6 +73,13 @@ h3 {
     line-height: 22px;
 }
 
+h4 {
+    font-weight: 700;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 22px;
+}
+
 p {
     font-weight: 400; 
     font-style: normal;

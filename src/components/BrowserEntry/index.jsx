@@ -14,7 +14,7 @@ import Heart from "../../icons/Heart";
 const StyledDiv = styled.div`
 background: var(--color-beige);
 border-radius: 5px;
-width: 375px;
+
 height: 215px;
 display: flex;
 justify-content: center;

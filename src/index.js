@@ -19,12 +19,11 @@ import App from './App';
 
 
 const httpLink = createHttpLink({
-  uri: "https://8h0g60av.api.sanity.io/v1/graphql/production/default"
+  uri: "https://gol06p5m.api.sanity.io/v1/graphql/production/default"
 });
 
-
-// Mein LINK von vorher: 
-// "https://gol06p5m.api.sanity.io/v1/graphql/production/default"
+// LINK zu FELIX BAckend
+// uri: "https://8h0g60av.api.sanity.io/v1/graphql/production/default"
 
 export const typeDefs = gql`
 extend type Query {
