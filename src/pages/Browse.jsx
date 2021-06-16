@@ -29,11 +29,20 @@ const Span = styled.span`
 function Browse () {
 
 const {loading, error, data} = useQuery(GET_ALLPROGRAMS, {
-  variables: {first:10}
-});
+  variables: { limit: 4, offset: 0 }});
 if (loading) return <Spinner />
 if (error) return <p>`Error: ${error.message}`</p>
 console.log(data.allProgram);
+
+// function onScroll(e) {
+//    // if div is at the bottom, fetch more posts
+//   //  if (e.target.scrollTop + e.target.clientHeight === e.target.scrollHeight) {
+//      console.log(e)
+//     // if there are no more posts to fetch, don't do anything
+
+// }
+
+
 
   return (
     <PageDiv>

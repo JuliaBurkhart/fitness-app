@@ -2,8 +2,8 @@ import { gql } from "@apollo/client";
 
 
 export const GET_ALLPROGRAMS = gql`
-query AllProgramsQuery {
-  allProgram {
+query AllProgramsQuery ($limit: Int, $offset: Int) {
+  allProgram (limit: $limit, offset: $offset) {
     title
     _id
   }

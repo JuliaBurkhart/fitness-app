@@ -26,7 +26,7 @@ if (error) return <p>`Error: ${error.message}`</p>
  console.log(isLoggedIn);
   return (
 
-      <div>
+      <>
       <GlobalStyle />
 
       <Route exact path="/">
@@ -47,25 +47,11 @@ if (error) return <p>`Error: ${error.message}`</p>
       <Route path="/exercise/:exerciseType/:exerciseId/:repsDuration" component={Exercise} />
 
       
-      </div>
+      </>
   );
 }
 
 export default App;
 
-/////// Fragen an Eric
-
-// Bilder bisher in public... Wie in src einbinden?
-// --> am besten in eigenen Ordner zu jeder component und dann importieren!!!
-// --> für die svgs gits noch ne extra/bessere möglichkeit so dass die dann auch veränderbar sind,
-// dazu gibts einen Link in der Gruppe
-
-// Tortendiagramm wie / womit erstellen? Library?
-// --> in Notion ist ein Link zu verschiedenen Librarys für Torten
-
-// ES Lint und die react/prop-types. Immer prop-types angeben oder Regel global ausstellen?
-// --> am schönsten wäre es, immer einen prop-type zu definieren
-
-// Ordnerstruktur
 
 
