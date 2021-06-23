@@ -36,6 +36,10 @@ top: 12px;
 right: 18px;
 `
 
+const StyledH2 = styled.h2`
+padding: 0 50px;
+`
+
 function BrowserEntry (props) {
 const [programIsLoved, setProgramLove] = useState(false);
 const thisId =props.id;
@@ -87,7 +91,7 @@ if(data.loveList.includes(thisId) && programIsLoved===false) {
 
 
         <StyledSmallText>Neu</StyledSmallText>
-        <h2>{props.title}</h2>
+        <StyledH2>{props.title}</StyledH2>
     </StyledDiv>
     </Link>
     )

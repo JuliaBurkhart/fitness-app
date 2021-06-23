@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useRef, useEffect} from "react";
 import styled from 'styled-components';
 
 
@@ -24,7 +24,7 @@ const Button = styled.button`
 `
 
 
-
+ 
 
 
 
@@ -33,8 +33,10 @@ function Browse () {
   const [filterShown, setFilterShown] = useState(false);
   const [keyword, setKeyword] = useState("");
   const [programs, setPrograms] = useState([])
+  const lastEntryRef = useRef();
 
-  const {loading, error, data} = useQuery(GET_ALLPROGRAMS, {
+  // Erste Daten laden und in den State packen und von da aus rendern
+  const {loading, error, data, refetch} = useQuery(GET_ALLPROGRAMS, {
     variables: { limit: 4, offset: 0 }});
   if (loading) return <Spinner />
   if (error) return <p>`Error: ${error.message}`</p>
@@ -43,29 +45,37 @@ function Browse () {
   }
 
 
+   useEffect(()=> {
+  //   // const observer = new IntersectionObserver(
+  //   //   (element)=>{
+  //   //     console.log(element);
+  //   //   }
+  //   // );
+  //   // observer.observe(lastEntryRef.current);
+  //   // return ()=> {observer.unobserve(lastEntryRef.current)};
+  }, []);
+   
+    
 
-function handleKeywordChange(e) {
-  const currentKeyword = e.target.value;
-  setKeyword(currentKeyword);
-}
+  // Function die das Keyword aus dem Suchfilter im State speichert
+  function handleKeywordChange(e) {
+    const currentKeyword = e.target.value;
+    setKeyword(currentKeyword);
+  }
 
-function handleFilterSubmit(e) {
-  e.preventDefault();
-  console.log("submitted");
-  console.log(keyword);
-  const filteredPrograms = programs.filter((program)=> program.title.toLowerCase().includes(keyword));
-  console.log(filteredPrograms);
-  setPrograms(filteredPrograms);
-}
+  // Wenn der Filter-Button gedrückt wird, werden Daten refetched, nach dem Keyword gefiltert und 
+  // im State gespeichert und von dort aus gerendert
+  function handleFilterSubmit(e) {
+    e.preventDefault();
+    refetch();
+    const filteredPrograms = data.allProgram.filter((program)=> program.title.toLowerCase().includes(keyword));
+    setPrograms(filteredPrograms);
+  }
 
-
-
-
-
-function handleClick() {
-(filterShown === false) ? setFilterShown(true) : setFilterShown(false);
-}
-
+  // Function die die Filter-Component öffnet und schließt
+  function handleClick() {
+  (filterShown === false) ? setFilterShown(true) : setFilterShown(false);
+  }
 
 
   return (
@@ -81,7 +91,9 @@ function handleClick() {
 })}
 
 
-
+<SmallText ref={lastEntryRef}>
+        load more...
+      </SmallText>
     </PageDiv>      
   
   )
